@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="dist/Chart.bundle.min.js"></script>
+    </script>
+</head>
+<body>
+<section id="zonaform">
+    <form action="" name="formulario">
+      <h1>Registro de alumnos</h1>
+      <label>Numero de cuenta  <input type="text" id="num_cuenta"><br></label>
+
+    <label>Nombre  <input type="text" id="nombre"><br></label>
+    <label>Apellido Paterno <input type="text" id="apellido_m"><br></label>
+      <label>Apellid Materno <input type="text" id="apellido_f"><br></label>
+          <label>Grado  <input type="text" id="grado"><br></label>
+        <label>Grupo  <input type="text" id="grupo"><br></label>
+        <label>Fecha  <input type="date" id="datee"><br></label>
+
+   <input type="button" id="boton" onclick="nombres($('#nombre').val(), $('#apellido').val()); return false;" value="enviar">
+
+</form>
+</section>
+
+  <section id="zonadatos"></section>
+
+    <script>
+        "use strict";
+(function () {
+
+  console.log('this is the start');
+
+  setTimeout(function cb() {
+    console.log('this is a msg from call back');
+  });
+
+  console.log('this is just a message');
+
+  setTimeout(function cb1() {
+    console.log('this is a msg from call back1');
+  },0);
+
+  console.log('this is the  end');
+
+})();
+
+
+//MENSAJES DE ERROR
+
+var error_nat = (function(error){
+    
+    alert("Usted presenta un error "+error);
+});
+error_nat("09038957");
+
+//_______________________________________________
+
+//ROLES
+        var usuarios = {
+        'No_cuenta': '09038957',
+        'nombre': {
+            'nombreAlumno': 'variable1',
+            'apellidoP': 'variable2',
+            'apellidoM': 'variable3'
+        },
+        'Salon': {
+            'grado': 'variable4',
+            'grupo': 'variable5',
+            'FaceFin':{
+                'faceFin': 'variable6'
+            },
+      }
+};
+ //________________________________________________
+
+//EJEMPLOSSS
+
+ var saludar = (function(name, sd){
+    //si name no tiene ningun argumento este se le asigna "amigo"
+    name = name || 'amigo';
+    console.log("***********");
+    if(arguments.length == 1){
+        console.log("buenos días "+ name);
+
+    }else{
+        console.log(name + " dice: ");
+            for(var i = 1; i < arguments.length; i++){
+                var mensaje = "hola, " + arguments[i];
+                console.log(mensaje);
+            }
+    }
+    console.log("**********");
+  
+ });
+
+ console.log(saludar.length);
+ saludar();
+  saludar('brad');
+  //------------EJEMPLO2
+    var empleado = function (nom, sueldBase){
+        this.nom = nom;
+        this.sueldBase = sueldBase;
+    }
+//REGISTRO SESION
+   function nombres(nombre, apellido){
+       var parametros = {
+           "nombre" : nombre,
+           "apellido" : apellido
+       };
+
+       $.ajax({
+            data: parametros,
+            url: 'php/registro_nombre.php',
+            type: 'post',
+                success: function (response) {
+                        $("#zonadatos").html(response);
+                }
+       });
+
+
+   }
+
+   //_-__________-
+
+        var usuarios = {
+        'No_cuenta': 'num_count',
+        'nombre': {
+            'nombreAlumno': 'variable1',
+            'apellidoP': 'variable2',
+            'apellidoM': 'variable3'
+        },
+        'Salon': {
+            'grado': 'variable4',
+            'grupo': 'variable5',
+            'FaceFin':{
+                'faceFin': 'variable6'
+            },
+      }
+};
+
+       
+
+//__________________________________________________
+    </script>
+</body>
+</html>
